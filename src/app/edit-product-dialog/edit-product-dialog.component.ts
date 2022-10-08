@@ -30,7 +30,7 @@ export class EditProductDialogComponent implements OnInit {
 
   updateProduct(){
     this.contactUsService.updateProduct(this.editProductForm.value, this.editData.id).subscribe((data) =>{
-
+      this.dialogRef.close('update')
     })
   }
 

@@ -38,6 +38,7 @@ export class ContactUsComponent implements OnInit {
   onSubmit(product: NgForm){
     console.log(product);
     this.contactusService.addProduct(product).subscribe((product) => {
+      this.fetchProducts()
       console.log(product)
     })
   }
@@ -45,6 +46,10 @@ export class ContactUsComponent implements OnInit {
   updateProduct(row: any){
     this.editDialog.open(EditProductDialogComponent,{
       data: row
+    }).afterClosed().subscribe((val) => {
+      if( val === 'update'){
+        this.fetchProducts()
+      }
     })
   }
 
