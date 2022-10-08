@@ -1,0 +1,19 @@
+<div class="mainContainer">
+  <div class="headerContent">
+    <mat-toolbar>
+      <span>My App</span>
+      <span class="example-spacer"></span>
+
+      <a mat-button routerLink="/home">Home</a>
+      <a mat-button routerLink="/about-us">About Us</a>
+      <a mat-button routerLink="/contact-us">Contact Us</a>
+
+      <span class="example-spacer"></span>
+
+      <button mat-raised-button color="warn" routerLink="/login">
+        Log Out
+      </button>
+    </mat-toolbar>
+  </div>
+  <div class="content"><router-outlet></router-outlet></div>
+</div>

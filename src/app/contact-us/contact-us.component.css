@@ -1,0 +1,22 @@
+.mainContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    margin-top: 20px;
+}
+
+table {
+    width: 100%;
+  }
+
+.title mat-card-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.actionContainer button{
+    margin: 8px;
+}

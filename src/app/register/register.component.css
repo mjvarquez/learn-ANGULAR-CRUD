@@ -1,0 +1,60 @@
+.mainContainer{
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url("../../assets/images/backgroundimage.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+}
+
+.formContainer{
+    height: 520px;
+    min-width: 150px;
+    max-width: 500px;
+    width: 70%;
+    padding: 8px;
+    background-color: rgba(255, 255, 255, 0.79);
+    border-radius: 16px;
+}
+
+.formContainer .formTitle{
+    text-align: center;
+    padding: 12px;
+    font-size: 1.6rem;
+    font-weight: bolder;
+}
+
+.form{
+    width: 100%;
+}
+
+mat-form-field.mat-form-field {
+    font-size: 16px;
+  }
+
+.mat-card-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mat-card-actions #button{
+    width: 90%;
+}
+
+.mat-card-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signupLink{
+    font-size: 0.8rem;
+}
