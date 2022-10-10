@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { ContactUsService } from '../contact-us/contact-us.service';
-import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 @Component({
   selector: 'app-edit-product-dialog',
@@ -37,7 +37,7 @@ export class EditProductDialogComponent implements OnInit {
   constructor( private formBuilder: FormBuilder, 
     @Inject(MAT_DIALOG_DATA) public editData: any,
     private dialogRef: MatDialogRef<EditProductDialogComponent>, 
-    private contactUsService: ContactUsService) { }
+    private contactUsService: ContactUsService) {}
 
   ngOnInit(): void {
     this.getEditProductForm()

@@ -58,5 +58,4 @@ export class ContactUsComponent implements OnInit {
   ngOnInit(): void {
     this.fetchProducts()
   }
-
 }

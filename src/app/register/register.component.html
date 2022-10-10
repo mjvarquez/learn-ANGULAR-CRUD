@@ -1,52 +1,50 @@
 <div class="mainContainer">
   <div class="content">
-    <form (ngSubmit)="onSubmit(myForm.value)" #myForm="ngForm">
+    <form [formGroup]="registerUserForm">
       <mat-card class="formContainer">
         <mat-card-title class="formTitle">Register</mat-card-title>
         <mat-card-content
-          ><mat-form-field class="form" appearance="fill">
+          ><mat-form-field class="form" appearance="outline">
             <mat-label>Name:</mat-label>
             <input
               matInput
               placeholder="Ex. mjvarquez"
-              value=""
-              name="name"
-              ngModel
+              formControlName="name"
             />
           </mat-form-field>
-          <mat-form-field class="form" appearance="fill">
+          <mat-form-field class="form" appearance="outline">
             <mat-label>Email:</mat-label>
             <input
               matInput
               placeholder="Ex. test@gmail.com"
-              value=""
-              name="email"
-              ngModel
+              formControlName="email"
             />
           </mat-form-field>
-          <mat-form-field class="form" appearance="fill">
+          <mat-form-field class="form" appearance="outline">
             <mat-label>Password:</mat-label>
             <input
               matInput
               placeholder="Ex. test@123"
-              value=""
-              name="password"
-              ngModel
+              formControlName="password"
             />
           </mat-form-field>
-          <mat-form-field class="form" appearance="fill">
+          <mat-form-field class="form" appearance="outline">
             <mat-label>Confirm Password:</mat-label>
             <input
               matInput
               placeholder="Ex. test@123"
-              value=""
-              name="password_confirmation"
-              ngModel
+              formControlName="password_confirmation"
             />
           </mat-form-field>
         </mat-card-content>
         <mat-card-actions>
-          <button mat-raised-button type="submit" value="Submit" id="button">
+          <button
+            mat-raised-button
+            type="submit"
+            value="Submit"
+            id="button"
+            (click)="registerUser()"
+          >
             Register
           </button>
         </mat-card-actions>
