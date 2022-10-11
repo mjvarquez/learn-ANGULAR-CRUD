@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
 
   getLoginForm(){
     this.loginUserForm = this.formBuilder.group({
-        email: ['', Validators.required],
+        email: ['', Validators.email],
         password: ['', Validators.required]
     })
   }
@@ -31,9 +31,9 @@ export class LoginComponent implements OnInit {
       alert('Login Successfully!')
       this.loginUserForm.reset()
       this.router.navigate(['home'])
-      console.log(data)
     }, err => {
       alert('Something went wrong!')
+      console.log(err.error.message)
     })
   }
 

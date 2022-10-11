@@ -4,7 +4,7 @@ import { FormBuilder, FormControl, Validators, FormGroup } from '@angular/forms'
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-register',
+  selector: 'app-register', 
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
@@ -15,7 +15,7 @@ export class RegisterComponent implements OnInit {
   getRegisterForm(){
     this.registerUserForm = this.formBuilder.group({
       name: ['', Validators.required],
-      email: ['', Validators.required],
+      email: ['', Validators.email],
       password: ['', Validators.required],
       password_confirmation: ['', Validators.required]
     })
