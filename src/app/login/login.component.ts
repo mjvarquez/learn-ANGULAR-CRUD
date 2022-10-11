@@ -11,12 +11,6 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  header = {
-    headers: new HttpHeaders({
-      'Content-type': 'application/json', 
-      'Authorization': `Bearer 751|D7ff7VTpeZr18YUjOsvdwiHuG8t7XSJpWB2ib0xE`})
-  }
-
   loginUserForm!: FormGroup;
 
   getLoginForm(){
@@ -27,14 +21,17 @@ export class LoginComponent implements OnInit {
   }
 
   loginUser(){
-    this.loginService.getLoginUser(this.loginUserForm.value).subscribe((data) =>{
+    this.loginService.getLoginUser(this.loginUserForm.value).subscribe({
+      next: data => {
       alert('Login Successfully!')
       this.loginUserForm.reset()
       this.router.navigate(['home'])
-    }, err => {
+    },
+    error: err => {
       alert('Something went wrong!')
       console.log(err.error.message)
-    })
+    }
+  })
   }
 
   constructor(private loginService: LoginService,
