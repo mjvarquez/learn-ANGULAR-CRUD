@@ -1,33 +1,35 @@
 <div class="mainContainer">
   <div class="content">
-    <form (ngSubmit)="onSubmit(myForm.value)" #myForm="ngForm">
+    <form [formGroup]="loginUserForm">
       <mat-card class="formContainer">
         <mat-card-title class="formTitle">Log In</mat-card-title>
         <mat-card-content
-          ><mat-form-field class="form" appearance="fill">
+          ><mat-form-field class="form" appearance="outline">
             <mat-label>Email:</mat-label>
             <input
               matInput
               placeholder="Ex. test@gmail.com"
-              value=""
-              name="email"
-              ngModel
+              formControlName="email"
             />
           </mat-form-field>
-
-          <mat-form-field class="form" appearance="fill">
+          <mat-form-field class="form" appearance="outline">
             <mat-label>Password:</mat-label>
             <input
               matInput
               placeholder="Ex. test@123"
-              value=""
-              name="password"
-              ngModel
+              formControlName="password"
             />
           </mat-form-field>
         </mat-card-content>
         <mat-card-actions>
-          <button mat-raised-button type="submit" id="button">Confirm</button>
+          <button
+            mat-raised-button
+            type="submit"
+            id="button"
+            (click)="loginUser()"
+          >
+            Confirm
+          </button>
         </mat-card-actions>
         <mat-card-footer
           ><nav>

@@ -28,10 +28,9 @@ export class RegisterComponent implements OnInit {
       this.router.navigate(['login'])
       console.log(data)
     }, err => {
-      alert('Something went Wrong!')
+      alert('Something went wrong!')
     })
   }
-
 
   constructor(private registerService: RegisterService, 
     private formBuilder: FormBuilder,
