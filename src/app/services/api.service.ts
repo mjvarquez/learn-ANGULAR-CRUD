@@ -1,19 +1,20 @@
-import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
+
 
 @Injectable({
   providedIn: 'root'
 })
-export class ContactUsService {
+export class ApiService {
 
   constructor(private http: HttpClient) { }
   
   header = {
     headers: new HttpHeaders({
       'Content-type': 'application/json', 
-      'Authorization': `Bearer 751|D7ff7VTpeZr18YUjOsvdwiHuG8t7XSJpWB2ib0xE`})
+      })
   }
 
   addProduct(data: any): Observable<any>{

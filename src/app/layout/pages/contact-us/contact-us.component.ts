@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ContactUsService } from './contact-us.service';
-import { Product } from './contact-us';
+import { ApiService } from 'src/app/services/api.service';
+import { Product } from '../../../models/contact-us';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog} from '@angular/material/dialog';
-import { EditProductDialogComponent } from '../edit-product-dialog/edit-product-dialog.component';
-
+import { EditProductDialogComponent } from '../../components/edit-product-dialog/edit-product-dialog.component';
+import { TokenStorageService } from 'src/app/services/token-storage.service';
 
 @Component({
   selector: 'app-contact-us',
@@ -21,7 +21,7 @@ export class ContactUsComponent implements OnInit {
   displayedColumns: string[] = ['id', 'name', 'image_link', 'description', 'price', 'action'];
 
   fetchProducts(){
-    this.contactusService.getProducts().subscribe((data) => {
+    this.api.getProducts().subscribe((data) => {
       this.listProduct = data.data
       this.dataSource = new MatTableDataSource(this.listProduct)
       console.log('list of Products', this.listProduct)
@@ -29,7 +29,7 @@ export class ContactUsComponent implements OnInit {
   }
 
   deleteProduct(id: number){
-    this.contactusService.deleteProduct(id).subscribe(((data) =>{
+    this.api.deleteProduct(id).subscribe(((data) =>{
       console.log(data)
       this.fetchProducts()
     }));
@@ -37,7 +37,7 @@ export class ContactUsComponent implements OnInit {
 
   onSubmit(product: NgForm){
     console.log(product);
-    this.contactusService.addProduct(product).subscribe((product) => {
+    this.api.addProduct(product).subscribe((product) => {
       this.fetchProducts()
       console.log(product)
     })
@@ -53,9 +53,12 @@ export class ContactUsComponent implements OnInit {
     })
   }
 
-  constructor(private contactusService: ContactUsService, private editDialog: MatDialog) { }
+  constructor(private api: ApiService, 
+    private editDialog: MatDialog,
+    private token: TokenStorageService) { }
 
   ngOnInit(): void {
     this.fetchProducts()
+    this.token.getUser
   }
 }

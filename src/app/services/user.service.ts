@@ -3,8 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
-import { ADMINS, USERS } from './mock-heroes';
-import { User } from './hero';
+import { ADMINS, USERS } from '../mock-heroes';
+import { User } from '../models/hero';
 
 @Injectable({
   providedIn: 'root'

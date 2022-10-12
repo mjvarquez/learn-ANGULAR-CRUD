@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { ContactUsService } from '../contact-us/contact-us.service';
+import { ApiService } from 'src/app/services/api.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 @Component({
@@ -29,7 +29,7 @@ export class EditProductDialogComponent implements OnInit {
   }
 
   updateProduct(){
-    this.contactUsService.updateProduct(this.editProductForm.value, this.editData.id).subscribe((data) =>{
+    this.api.updateProduct(this.editProductForm.value, this.editData.id).subscribe((data) =>{
       this.dialogRef.close('update')
     })
   }
@@ -37,7 +37,7 @@ export class EditProductDialogComponent implements OnInit {
   constructor( private formBuilder: FormBuilder, 
     @Inject(MAT_DIALOG_DATA) public editData: any,
     private dialogRef: MatDialogRef<EditProductDialogComponent>, 
-    private contactUsService: ContactUsService) {}
+    private api: ApiService) {}
 
   ngOnInit(): void {
     this.getEditProductForm()

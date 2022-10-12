@@ -13,11 +13,9 @@ import {MatDialogModule} from '@angular/material/dialog';;
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { UserService } from './user.service';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { EditProductDialogComponent } from './edit-product-dialog/edit-product-dialog.component';
-import { TokenInterceptorService } from './token-interceptor.service';
-import { AuthService } from './auth/auth.service';
+import { HttpClientModule } from '@angular/common/http';
+import { EditProductDialogComponent } from './layout/components/edit-product-dialog/edit-product-dialog.component';
+import { tokenInterceptorService } from './services/token-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -41,12 +39,7 @@ import { AuthService } from './auth/auth.service';
     MatDialogModule,
     ReactiveFormsModule,
   ],
-  providers: [UserService, AuthService, 
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: TokenInterceptorService,
-      multi: true
-  }],
+  providers: [tokenInterceptorService],
   bootstrap: [AppComponent]
 })
 
