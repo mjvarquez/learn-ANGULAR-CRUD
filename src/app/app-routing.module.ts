@@ -6,13 +6,16 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { LayoutComponent } from './layout/layout.component';
 import { ContactUsComponent } from './layout/pages/contact-us/contact-us.component';
+import { AuthGuardGuard } from './shared/auth-guard.guard';
 
 const routes: Routes = [
   
-  {path: '', component: LayoutComponent, children: [
-    {path: 'home', component: HomeComponent},
-    {path: 'about-us', component: AboutUsComponent},
-    {path: 'contact-us', component: ContactUsComponent}
+  {
+    path: '', component: LayoutComponent, canActivate: [AuthGuardGuard], 
+    children: [
+      {path: 'home', component: HomeComponent},
+      {path: 'about-us', component: AboutUsComponent},
+      {path: 'contact-us', component: ContactUsComponent}
     ],
   },
   {path: 'login', component: LoginComponent},

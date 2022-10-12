@@ -15,7 +15,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { EditProductDialogComponent } from './layout/components/edit-product-dialog/edit-product-dialog.component';
-import { tokenInterceptorService } from './services/token-interceptor.service';
+import { tokenInterceptorService } from './shared/token-interceptor.service';
 
 @NgModule({
   declarations: [
