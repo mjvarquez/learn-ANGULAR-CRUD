@@ -11,25 +11,25 @@ export class TokenStorageService {
   constructor() {}
 
   signOut(): void{
-    window.sessionStorage.clear()
+    window.localStorage.clear()
   }
 
   saveToken(token: string): void {
-    window.sessionStorage.removeItem(token_key);
-    window.sessionStorage.setItem(token_key, token);
+    window.localStorage.removeItem(token_key);
+    window.localStorage.setItem(token_key, token);
   }
 
   getToken(): string | null {
-    return window.sessionStorage.getItem(token_key);
+    return window.localStorage.getItem(token_key);
   }
 
   saveUser(user: any): void {
-    window.sessionStorage.removeItem(user_key);
-    window.sessionStorage.setItem(user_key, JSON.stringify(user));
+    window.localStorage.removeItem(user_key);
+    window.localStorage.setItem(user_key, JSON.stringify(user));
   }
 
   getUser(): any {
-    const user = window.sessionStorage.getItem(user_key);
+    const user = window.localStorage.getItem(user_key);
     if (user) {
       return JSON.parse(user);
     }

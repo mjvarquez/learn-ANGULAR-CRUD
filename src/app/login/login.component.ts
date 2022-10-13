@@ -11,6 +11,7 @@ import { TokenStorageService } from '../shared/token-storage.service';
 })
 export class LoginComponent implements OnInit {
 
+
   loginUserForm!: FormGroup;
 
   getLoginForm(){
@@ -23,8 +24,8 @@ export class LoginComponent implements OnInit {
   loginUser(){
       this.loginService.getLoginUser(this.loginUserForm.value).subscribe({
         next: data => {
+        console.log(data)
         alert('Login Successfully!')
-        console.log(data.token)
         this.tokenStorage.saveToken(data.token)
         this.tokenStorage.saveUser(data)
         this.loginUserForm.reset()
@@ -40,10 +41,11 @@ export class LoginComponent implements OnInit {
   constructor(private loginService: LoginService,
     private tokenStorage: TokenStorageService,
     private formBuilder: FormBuilder,
-    private router: Router) {}
+    private router: Router,) {}
 
   ngOnInit(): void {
     this.getLoginForm()
+    this.loginService.autoLogin()
   }
 
 }

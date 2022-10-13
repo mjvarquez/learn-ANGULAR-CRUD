@@ -9,8 +9,10 @@ import { Router } from '@angular/router';
 })
 export class AuthGuardGuard implements CanActivate {
 
-  constructor(private loginService: LoginService,
-    private router: Router ) {}
+  constructor(
+    private loginService: LoginService,
+    private router: Router 
+    ) {}
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
